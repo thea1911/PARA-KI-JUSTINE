@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url('image/home.png') no-repeat center center;
+    background-size: cover;  /* Ensure the image covers the entire body */
+    background-attachment: fixed;  /* Make the background image fixed */
+    background-color: #f1f1f1;  /* Fallback color */
+    min-height: 100vh;  /* Ensures the body takes up the full height of the viewport */
+    overflow: auto;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+}
+
+.product-container {
+    background-color: #fff;
+    justify-content: center;
+    height: auto;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.product-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"], input[type="number"], textarea, select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    background-color: #0099ff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 0;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #007acc;
+}
+
+#message {
+    margin-bottom: 20px;
+}
+
+.image-upload-container {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #0099ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.image-upload-container input[type="file"] {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+#product-preview {
+    max-width: 100%;
+    max-height: 100%;
+    display: none;
+}
+
+.plus-sign {
+    font-size: 48px;
+    color: #0099ff;
+    display: block;
+}
+
+/* Media Queries for Mobile and Tablet Views */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .product-container {
+        padding: 10px;
+        margin: 10px;
+        width: 100%;
+    }
+
+    .product-form {
+        padding: 20px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    button {
+        padding: 12px 0;
+        font-size: 14px;
+    }
+
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    .image-upload-container {
+        height: 150px;
+    }
+
+    .plus-sign {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-container {
+        padding: 10px;
+        margin: auto;
+        width: 90%;
+    }
+
+    .product-form {
+        padding: 15px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+    }
+
+    .input-group {
+        margin-bottom: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+
+    .profile-pic {
+        width: 130px;
+        height: 130px;
+    }
+
+    .image-upload-container {
+        height: 120px;
+    }
+
+    .plus-sign {
+        font-size: 32px;
+    }
+}

@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url('image/home.png') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #f1f1f1;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+/* Profile Picture */
+.profile-pic {
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+}
+
+/* Main Container */
+.product-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    overflow: hidden;
+}
+
+.product-container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Product List */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-height: 400px;
+    overflow: auto;  /* Allow scrolling */
+}
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.product-list-item::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+}
+
+.product-list-item {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next row if needed */
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    max-height: 300px; /* Set the desired maximum height for the scrollable area */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.product-item {
+    flex: 1 1 calc(25% - 20px);
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-details h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: bold; /* Make product title bold */
+}
+
+.product-details p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.product-details .price {
+    font-size: 1.1em;
+    color: #2c8e00;
+    font-weight: bold; /* Make price bold */
+}
+
+/* Buttons */
+button {
+    display: inline-block;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold; /* Make buttons bold */
+    font-family: 'Fredoka', sans-serif;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Availability Button */
+.availability-button {
+    background-color: #6c757d;
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-weight: bold; /* Make the availability button bold */
+}
+
+.availability-button:hover {
+    background-color: #5a6268;
+}
+
+/* Add Product Link */
+.add-product-link {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold; /* Make the add product button bold */
+}
+
+.add-product-link:hover {
+    background-color: #218838;
+}
+
+/* Stock Input */
+#stock-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#stock-input input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.update-stock-button {
+    background-color: #17a2b8;
+}
+
+.update-stock-button:hover {
+    background-color: #138496;
+}
+
+/* Shipping Fee Modal */
+.shipping-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.shipping-modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    font-weight: bold; /* Make modal content bold */
+}
+
+.shipping-modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+#shipping-fee-form input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#shipping-fee-form button {
+    background-color: #007bff;
+    color: #fff;
+    font-family: 'Fredoka', sans-serif;
+}
+
+#shipping-fee-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Popup message container */
+.popup-message {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+    overflow: auto; /* Enable scroll if needed */
+    padding-top: 60px; /* Padding for popup content */
+}
+
+/* Popup message content */
+.popup-message-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+    margin-top: 300px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Fredoka', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Fade out effect */
+.popup-message.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-item {
+        flex: 1 1 calc(50% - 10px); /* Adjust to fit 2 items per row */
+    }
+
+    .add-product-link {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    .product-container {
+        margin: auto;
+        padding: 20px;
+        margin-top: 30%;
+    }
+
+    .profile-pic {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-item {
+        flex: 1 1 100%; /* Stack items vertically */
+    }
+
+    .product-details h2 {
+        font-size: 1em; /* Reduce title size */
+    }
+
+    .product-container h1 {
+        font-size: 1.6em; /* Adjust title size for small screens */
+    }
+
+    .product-container {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 20px;
+        margin-top: 20%;
+    }
+
+    button {
+        font-size: 0.8em;
+        padding: 7px 10px;
+    }
+
+    .add-product-link {
+        font-size: 0.8em;
+        padding: 8px 12px;
+    }
+
+    .profile-pic {
+        width: 140px;
+        height: 140px; /* Adjust profile image size */
+    }
+
+    /* Smaller padding for modal content on mobile */
+    .shipping-modal-content {
+        width: 85%;
+        margin-top: 50%;
+    }
+
+    .shipping-modal-content h2 {
+        font-size: 1.2em;
+    }
+
+    /* Make buttons slightly smaller on mobile */
+    .update-stock-button, .availability-button {
+        font-size: 0.8em;
+    }
+}
