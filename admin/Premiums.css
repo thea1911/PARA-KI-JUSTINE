@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url('image/home.png') no-repeat center center;
+    background-size: cover;  /* Ensure the image covers the entire body */
+    background-attachment: fixed;  /* Make the background image fixed */
+    background-color: #f1f1f1;  /* Fallback color */
+    min-height: 100vh;  /* Ensures the body takes up the full height of the viewport */
+    overflow: auto;
+}
+
+.main-container {
+    display: flex; /* Aligns the two containers side by side */
+    gap: 20px; /* Space between the two containers */
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 20px;
+    max-height: 800px;
+}
+
+.container {
+    flex: 1; /* Ensures both containers take up equal space */
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(30% - 20px); /* Responsive card width */
+    min-width: 250px;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #0093C1;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+.membership-section {
+    margin-bottom: 40px;
+}
+
+.edit-button {
+    padding: 10px 15px;
+    background-color: #0093C1;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px 20px 60px; /* Adjust bottom padding for the button */
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    height: 36%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+}
+
+
+@keyframes modalFadeIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type="text"], input[type="number"], button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    position: absolute; /* Position the button absolutely */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    background-color: #0093C1;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: 100px; /* Optional: set a maximum width */
+    padding: 10px; /* Ensure padding is consistent */
+    border-radius: 18px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Disable scrolling when modal is open */
+.no-scroll {
+    overflow: hidden;
+}
+input[type="text"], input[type="number"] {
+    width: 90%; /* Adjust width to your preference */
+    max-width: 500px; /* Optional: set a maximum width */
+    padding: 10px;
+    margin: 10px auto; /* Center the input elements */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+}
+
+/* General Mobile View Adjustments */
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        min-height: 100vh; /* Ensure full height on smaller screens */
+    }
+
+    .main-container {
+        flex-direction: column; /* Stack containers vertically */
+        padding: 10px; /* Reduce padding for smaller screens */
+        gap: 20px; /* Add more spacing between containers */
+        max-height: 80vh; /* Limit modal height to 80% of the viewport height */
+        overflow-y: auto; /* Add scrolling if content exceeds modal height */
+    }
+
+    .container {
+        flex: 1; /* Ensure flexibility */
+        width: 100%; /* Adjust to fit screen size */
+        max-width: unset; /* Remove max-width restriction */
+        margin: 0 auto; /* Center the container */
+        padding: 20px; /* Ensure sufficient padding */
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .card-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center align for consistency */
+        gap: 15px;
+    }
+
+    .card {
+        flex: 1 1 100%; /* Full-width cards on mobile */
+        min-width: unset; /* Remove minimum width restriction */
+        width: 80%; /* Adjust to fit screen size */
+        max-width: unset; /* Remove max-width restriction */
+    }
+
+    input[type="text"], 
+    input[type="number"], 
+    button[type="submit"] {
+        width: 90%; /* Take full width on smaller screens */
+    }
+    
+    .profile-pic {
+        width: 150px; /* Slightly larger profile pic for better visibility */
+        height: 150px;
+    }
+
+    button[type="submit"] {
+        max-width: 100px; /* Adjust button width */
+        bottom: 10px; /* Adjust for smaller screens */
+        right: 10px;
+        padding: 10px; /* Ensure sufficient padding */
+    }
+
+    .modal-content {
+        width: 90%; /* Use most of the screen width */
+        padding: 15px; /* Adjust padding for smaller screens */
+        height: 36%;
+    }
+
+    button[type="submit"] {
+        width: 100%; /* Make button full-width on mobile */
+        align-self: center; /* Center-align the button */
+        margin-top: 10px; /* Add spacing above the button */
+    }
+}
+
+/* Small Mobile View (e.g., phones) */
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%; /* Use the entire viewport width */
+        padding: 15px; /* Add more padding */
+    }
+
+    .modal-content {
+        width: 90%; /* Use the full width of the screen */
+        padding: 15px 10px; /* Reduce padding inside the modal */
+        height: 52%;
+    }
+
+    .card h3 {
+        font-size: 20px; /* Increase font size for better readability */
+    }
+
+    .card p {
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .edit-button {
+        font-size: 16px; /* Larger button text */
+        padding: 10px 14px;
+    }
+}
+

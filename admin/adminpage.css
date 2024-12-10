@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url('image/home.png') no-repeat center center;
+    background-size: cover;  /* Ensure the image covers the entire body */
+    background-attachment: fixed;  /* Make the background image fixed */
+    background-color: #f1f1f1;  /* Fallback color */
+    min-height: 100vh;  /* Ensures the body takes up the full height of the viewport */
+    overflow: auto;
+}
+
+/* Style for the main container */
+.home-container {
+    border-radius: 30px;
+    padding: 40px; /* Reduced padding for better modal placement */
+    margin: 20px auto;
+    width: 90%; /* Full width with some margin */
+    max-width: 1000px; /* Maximum width */
+    display: flex; /* Use flex for layout */
+    flex-direction: row; /* Ensure sections are side by side */
+    justify-content: space-between; /* Space between sections */
+    align-items: stretch; /* Align items to the top */
+    gap: 20px; /* Space between sections */
+    border-radius: 20px;
+}
+
+/* Style for each section */
+.top-selling, .top-subscriber {
+    flex: 1; /* Allow sections to grow equally */
+    margin: 0 10px; /* Margin between sections */
+    padding: 15px; /* Padding inside sections */
+    background-color: #F1F1F3; /* White background for sections */
+    border-radius: 20px; /* Increased rounded corners for sections */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for sections */
+    display: flex; /* Ensure internal elements are also flex */
+    flex-direction: column; /* Stack internal elements vertically */
+    height: 100%; /* Ensure both containers take full height of parent */
+    align-items: stretch; /* Ensure content stretches to fill */
+    flex-grow: 1; /* Ensures both containers expand equally */
+}
+
+/* Style for headings */
+h2 {
+    font-size: 24px; /* Adjust heading size */
+    margin-bottom: 10px; /* Space below heading */
+    text-align: center; /* Center the heading text */
+}
+
+/* Style for lists */
+ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+/* Style for the circular number */
+.home-id {
+    font-weight: bold;
+    background-color: #B1DEEF; /* Circular background color */
+    color: white;
+    width: 30px; /* Width of the circle */
+    height: 30px; /* Height of the circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Makes the background circular */
+    margin-right: 20px; /* Space between number and name */
+    margin-left: 10px; /* Add space before each number */
+}
+
+/* Style for home items */
+.home {
+    background-color: #0093C1;
+    padding: 15px;
+    width: 400px; /* Full width within the section */
+    border-radius: 50px; /* Increased rounded corners for home items */
+    font-size: 16px;
+    color: white;
+    display: flex;
+    align-items: center; /* Aligns items vertically centered */
+    font-weight: bold;
+    margin: 10px 0; /* Add space between each list item */
+}
+
+.home:hover{
+    background: #003f67;
+}
+
+.show-all {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the button */
+    margin-top: 20px; /* Space above the button */
+}
+
+.show-all .btn {
+    padding: 10px 20px; /* Increased padding for better click area */
+    width: 100px;
+    background-color: #3DBFEA; /* Button background color */
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.show-all .btn:hover {
+    background-color: #31a2d4; /* Darker shade on hover */
+    color: white;
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.hidden {
+    display: none; /* Initially hide the extra items */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Center vertically with margin */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Width of modal */
+    max-height: 80%; /* Limit height */
+    overflow-y: auto; /* Enable scrolling if needed */
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Full List inside Modal */
+.full-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.full-list li {
+    background-color: #0093C1;
+    color: white;
+    width: 500px;
+    padding: 10px 20px; /* Add horizontal padding for spacing */
+    margin: 10px auto; /* Center the list item horizontally */
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.full-list li:hover{
+    background-color: #003f67;
+}
+
+.full-list .home-id {
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.close-button {
+    color: #aaa; /* Light gray color */
+    float: right; /* Align to the right */
+    font-size: 28px; /* Size of the button */
+    font-weight: bold; /* Make it bold */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black; /* Change color on hover */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+
+/* RESPONSIVE STYLES */
+
+@media (max-width: 480px) {
+    body {
+        background-size: cover; /* Maintain cover but adjust readability */
+    }
+
+    .home-container {
+        flex-direction: column; /* Stack sections vertically */
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .top-selling, .top-subscriber {
+        margin: 10px 0; /* Add margin between stacked sections */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .home {
+        font-size: 14px; /* Adjust text size for readability */
+        padding: 8px; /* Reduce padding */
+        width: auto; /* Allow width to adjust */
+    }
+
+    .btn {
+        width: 100%; /* Make buttons stretch full width */
+        padding: 12px; /* Increase padding for easier clicking */
+    }
+
+    h2 {
+        font-size: 20px; /* Slightly smaller heading size */
+        margin: 10px 0; /* Adjust margins */
+    }
+
+    .modal-content {
+        width: 80%; /* Full width modal on mobile */
+        max-height: 50%;
+        padding: 15px; /* Reduce padding for mobile */
+    }
+
+    .profile-pic {
+        width: 120px; /* Smaller profile picture */
+        height: 120px; /* Adjust aspect ratio */
+    }
+
+    .home-id {
+        width: 25px; /* Smaller circle size */
+        height: 25px;
+        font-size: 12px; /* Reduce font size */
+    }
+
+    ul, .full-list {
+        padding: 0;
+    }
+
+    .full-list li {
+        font-size: 14px; /* Adjust font size */
+        width: auto; /* Ensure it adjusts to the screen width */
+        padding: 10px; /* Maintain padding for click area */
+    }
+
+    .show-all .btn {
+        width: auto; /* Button width adjusts dynamically */
+    }
+}
+
+
+.profile-pic {
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+}

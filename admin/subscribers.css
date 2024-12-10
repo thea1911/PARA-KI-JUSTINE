@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url('image/home.png') no-repeat center center;
+    background-size: cover;  /* Ensure the image covers the entire body */
+    background-attachment: fixed;  /* Make the background image fixed */
+    background-color: #f1f1f1;  /* Fallback color */
+    min-height: 100vh;  /* Ensures the body takes up the full height of the viewport */
+    overflow: auto;
+}
+
+h1 {
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 8px;
+    width: 80%; /* Control the width to adjust the size */
+    max-width: 600px; /* Set a maximum width for medium size */
+    margin: 20px auto; /* Center the header horizontally */
+}
+
+.container {
+    display: flex; /* Use flex to create a side-by-side layout */
+    flex-direction: column; /* Ensure the container stacks vertically */
+    align-items: center; /* Center contents horizontally */
+    padding: 20px; /* Padding around the container */
+    margin: 20px auto; /* Center the container */
+    width: 90%; /* Full width with some margin */
+    max-width: 1000px; /* Maximum width */
+}
+
+.subscribers-section {
+    display: flex; /* Flexbox for internal layout */
+    flex-direction: row; /* Arrange sections side by side */
+    gap: 20px; /* Space between the sections */
+    width: 100%; /* Ensure it takes full width of the container */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.owners-container, .customers-container {
+    flex: 1; /* Allow sections to grow equally */
+    margin: 0; /* Remove margins */
+    padding: 15px; /* Padding inside sections */
+    background-color: #F1F1F3; /* Light background for sections */
+    border-radius: 20px; /* Increased rounded corners for sections */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for sections */
+    display: flex; /* Enable flexbox layout for centering */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center child elements horizontally */
+    text-align: center; /* Center text within the containers */
+    min-width: 280px; /* Set a minimum width to maintain layout */
+}
+
+h2 {
+    font-size: 24px; /* Adjust heading size */
+    margin-bottom: 10px; /* Space below heading */
+    text-align: center; /* Center the heading text */
+}
+
+ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center align the list */
+}
+
+.card {
+    background-color: #0093C1;
+    padding: 10px; /* Reduced padding for closer alignment */
+    max-width: 90%; /* Responsive width */
+    height: 40px;
+    width: 400px; /* Default width */
+    border-radius: 50px; /* Increased rounded corners for home items */
+    font-size: 16px;
+    color: white;
+    display: flex;
+    font-weight: bold;
+    margin: 10px 0; /* Add space between each list item */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the start */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.card-id {
+    font-weight: bold;
+    background-color: #B1DEEF; /* Circular background color */
+    color: white;
+    width: 30px; /* Width of the circle */
+    height: 30px; /* Height of the circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Makes the background circular */
+    margin-right: 10px; /* Space between ID and name */
+    margin-left: 0; /* Removed space before each number */
+}
+
+.card h3 {
+    margin: 0; /* Remove margin from heading */
+    padding-left: 5px; /* Padding between the number and name */
+    text-align: left; /* Align text to the left */
+    display: inline; /* Change to inline to align beside card-id */
+}
+
+.card:hover {
+    background-color: #003f67; /* Change background on hover */
+}
+
+button {
+    display: block; /* Make the button a block element */
+    margin: 10px auto; /* Center the button with auto margins */
+    padding: 10px 20px; /* Add padding for better appearance */
+    background-color: #3dbfea; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 50px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-weight: bold; /* Bold text */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth background change */
+    font-family: 'Fredoka', sans-serif;
+}
+
+button:hover {
+    background-color: #0093C1; 
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+button:focus {
+    outline: none; /* Remove focus outline */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+.modal-content {
+    position: fixed; /* Fixed position */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    background-color: #F1F1F3; /* Same background as sections */
+    padding: 20px;
+    border-radius: 20px; /* Same border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for modal */
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Set a maximum width for consistency */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center child elements horizontally */
+    text-align: center; /* Center text within the modal */
+    overflow: auto; /* Allow internal scrolling if content exceeds modal height */
+    max-height: 80%; /* Limit the height of the modal */
+    position: relative; /* Set position relative for absolute positioning of close button */
+}
+
+.close {
+    position: absolute; /* Position absolute for the close button */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Change color on hover/focus */
+    text-decoration: none;
+}
+
+.modal-content h2 {
+    font-size: 24px; /* Same heading size as in sections */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.modal-content ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center align the list */
+}
+
+.modal-content li {
+    background-color: #0093C1; /* Same background color for list items */
+    padding: 10px; /* Padding for list items */
+    border-radius: 50px; /* Rounded corners for list items */
+    font-size: 16px; /* Font size for list items */
+    color: white; /* Text color */
+    display: flex; /* Flex layout for list items */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the start */
+    margin: 10px 0; /* Space between each list item */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.modal-content li:hover {
+    background-color: #003f67; /* Change background on hover */
+}
+
+.sales-button {
+    background-color: #0093C1; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 50px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+    display: inline-block; /* Inline-block to allow padding */
+    position: relative; /* Position for stacking context */
+    z-index: 1; /* Ensure it’s on top of other elements */
+    margin-left: 800px;
+    width: 150px;
+}
+
+.sales-button:hover {
+    background-color: #3dbfea; /* Change background color on hover */
+}
+
+/* Make button responsive */
+@media (max-width: 768px) {
+    .sales-button {
+        font-size: 18px; /* Increase font size */
+        margin-right: 600px;
+    }
+
+    /* Flex direction adjustment for small screens */
+    .subscribers-section {
+        flex-direction: column; /* Stack vertically on smaller screens */
+    }
+
+    .owners-container, .customers-container {
+        width: 90%; /* Ensure containers take full width */
+        margin-bottom: 20px; /* Add space between the containers */
+        padding: 15px;
+    }
+
+    .card {
+        width: 100%; /* Make cards full width on smaller screens */
+        max-width: none; /* Remove max-width restriction */
+    }
+
+    /* Modal adjustments */
+    .modal-content {
+        width: 90%; /* Make modal content responsive */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .modal-content h2 {
+        font-size: 20px; /* Adjust heading size */
+    }
+
+    .card {
+        font-size: 14px; /* Adjust font size for cards */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        font-size: 12px; /* Further reduce font size */
+        padding: 8px; /* Adjust padding for smaller screens */
+    }
+
+    .sales-button {
+        font-size: 16px; /* Adjust font size */
+    }
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 150px; /* Adjust profile picture size */
+    height: 150px; /* Adjust profile picture size */
+    object-fit: cover;
+    margin: 10px auto;
+}

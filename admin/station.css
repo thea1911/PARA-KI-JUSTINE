@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url('image/home.png') no-repeat center center;
+    background-size: cover;  /* Ensure the image covers the entire body */
+    background-attachment: fixed;  /* Make the background image fixed */
+    background-color: #f1f1f1;  /* Fallback color */
+    min-height: 100vh;  /* Ensures the body takes up the full height of the viewport */
+    overflow: auto;
+}
+
+.centered {
+    text-align: center;
+    margin: 0;
+}
+
+
+.header {
+    color: black;
+    padding: 10px 10px;
+    text-align: center;
+    border-radius: 8px;
+    width: 80%; /* Control the width to adjust the size */
+    max-width: 600px; /* Set a maximum width for medium size */
+    margin: 10px auto; /* Add margin-top to lower the header */
+}
+
+/* Style for the main container */
+.home-container {
+    border-radius: 20px; /* Maintain rounded corners */
+    padding: 20px; /* Adjust padding as needed */
+    margin: 20px auto; /* Center the container */
+    width: 90%; /* Full width with some margin */
+    max-width: 1200px; /* Increased max width for larger screens */
+    display: flex; /* Use flex for layout */
+    flex-direction: row; /* Keep sections side by side */
+    justify-content: space-between; /* Space between sections */
+    align-items: stretch; /* Align items to the top */
+    gap: 30px; /* Increase gap for more space between sections */
+}
+
+.top-selling-container, .new-stations-container {
+    display: flex; /* Make this a flex container */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    flex: 1; /* Allow sections to grow equally */
+    margin: 0 15px; /* Adjust margin between sections */
+    padding: 20px; /* Increased padding inside sections */
+    width: 300px;
+    background-color: #F1F1F3; /* Keep section background color */
+    border-radius: 15px; /* Increased rounded corners */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Increased shadow effect */
+    display: flex; /* Ensure internal elements are also flex */
+    flex-direction: column; /* Stack internal elements vertically */
+    height: auto; /* Allow sections to adjust height automatically */
+}
+
+/* Style for headings */
+h2 {
+    font-size: 24px; /* Adjust heading size */
+    margin-bottom: 10px; /* Space below heading */
+    text-align: center; /* Center the heading text */
+}
+
+/* Style for lists */
+ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+/* Style for home items */
+.home {
+    background-color: #0093C1;
+    padding: 15px;
+    width: 400px; /* Full width within the section */
+    border-radius: 50px; /* Increased rounded corners for home items */
+    font-size: 16px;
+    color: white;
+    display: flex;
+    align-items: center; /* Aligns items vertically centered */
+    font-weight: bold;
+    margin: 10px 0; /* Add space between each list item */
+}
+
+.station-item {
+    background-color: #0093C1; /* Light blue background */
+    padding: 10px; /* Space inside each item */
+    margin: 5px auto; /* Center the item horizontally */
+    border-radius: 50px; /* Rounded corners */
+    color: white;
+    font-weight: bold;
+    width: 450px; /* Fixed width for the item */
+}
+
+.station-item:hover{
+    background: #003f67;
+}
+
+.station-item strong {
+    color: white; /* Change the color of the station name */
+}
+
+.station-number {
+    display: inline-block; /* Make the span behave like a block element */
+    width: 30px; /* Set the width for the circle */
+    height: 30px; /* Set the height for the circle */
+    border-radius: 50%; /* This makes it circular */
+    background-color: #b1deef; /* Circle background color */
+    color: white; /* Text color inside the circle */
+    text-align: center; /* Center the text */
+    line-height: 30px; /* Center the number vertically */
+    font-weight: bold; /* Make the number bold */
+    margin-right: 10px; /* Space between the circle and the text */
+}
+
+.show-all-button {
+    display: block; /* Make the button a block element */
+    margin: 10px auto; /* Center the button with auto margins */
+    padding: 10px 20px; /* Add padding for better appearance */
+    background-color: #3dbfea; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 50px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-weight: bold; /* Bold text */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth background change */
+    font-family: 'Fredoka', sans-serif;
+}
+
+.show-all-button:hover {
+    background-color: #0093C1; /* Darker background on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+
+.hidden {
+    display: none; /* To hide elements */
+}
+
+.modal {
+    display: flex; /* Use flex to center the modal */
+    position: fixed;
+    z-index: 1000; /* Sit on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Dark background */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto; /* Center the modal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Max width for larger screens */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow effect */
+    overflow-y: auto; /* Enable vertical scroll if content overflows */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none; /* Hide elements with this class */
+}
+
+/* Responsive Styles for Tablets (768px and below) */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column; /* Stack sections vertically */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .top-selling-container,
+    .new-stations-container {
+        width: 90%; /* Make sections full-width */
+        margin: 10px 0; /* Add margin for spacing */
+    }
+
+    h2 {
+        font-size: 20px; /* Adjust heading size */
+    }
+
+    .home {
+        width: 100%; /* Full width for items */
+        padding: 10px; /* Adjust padding */
+        font-size: 14px; /* Slightly smaller font */
+    }
+
+    .station-item {
+        width: 100%; /* Full width for items */
+        padding: 8px; /* Adjust padding */
+    }
+
+    .show-all-button {
+        font-size: 14px; /* Smaller font for buttons */
+        padding: 8px 15px; /* Adjust padding */
+    }
+
+    .modal-content {
+        width: 90%; /* Make modal content wider */
+    }
+}
+
+/* Responsive Styles for Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+    body {
+        background-size: cover; /* Maintain full cover background */
+    }
+
+    .header {
+        font-size: 16px; /* Smaller font for headers */
+        width: 95%; /* Maximize space */
+    }
+
+    .home-container {
+        flex-direction: column; /* Stack sections vertically */
+        padding: 10px; /* Adjust padding */
+        gap: 20px; /* Space between sections */
+    }
+
+    .top-selling-container,
+    .new-stations-container {
+        width: 90%; /* Full width */
+        margin: auto; /* No horizontal margin */
+        padding: 10px; /* Reduce padding */
+        box-shadow: none; /* Simplify design for smaller screens */
+    }
+
+    h2 {
+        font-size: 18px; /* Smaller heading size */
+        margin-bottom: 8px; /* Adjust spacing */
+    }
+
+    .home {
+        font-size: 12px; /* Adjust font size */
+        padding: 10px; /* Reduced padding */
+        width: 100%; /* Full width */
+    }
+
+    .station-item {
+        font-size: 12px; /* Smaller font */
+        padding: 8px; /* Reduced padding */
+        width: 100%; /* Full width */
+        border-radius: 20px; /* Softer corners */
+    }
+
+    .station-item strong {
+        font-size: 14px; /* Adjust font for readability */
+    }
+
+    .station-number {
+        width: 25px; /* Smaller circle size */
+        height: 25px; /* Match circle height */
+        font-size: 10px; /* Adjust text size */
+        line-height: 25px; /* Align text vertically */
+    }
+
+    .show-all-button {
+        font-size: 12px; /* Smaller text size */
+        padding: 8px 12px; /* Adjust padding */
+        width: auto; /* Fit content width */
+        border-radius: 30px; /* Smaller button corners */
+    }
+
+    .modal-content {
+        width: 80%; /* Almost full screen */
+        padding: 15px; /* Adjust padding */
+    }
+
+    .profile-pic {
+        width: 120px; /* Smaller profile picture */
+        height: 120px; /* Match smaller dimensions */
+    }
+
+    ul {
+        padding-left: 0; /* Remove default padding for the list */
+        margin: auto; /* Remove margin to ensure it fits properly */
+        list-style-type: none; /* Remove bullet points */
+        width: 90%;
+    }
+
+    .hidden {
+        display: none; /* Hide elements with this class */
+    }
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+}

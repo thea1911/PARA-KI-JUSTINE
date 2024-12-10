@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url('image/home.png') no-repeat center center;
+    background-size: cover;  /* Ensure the image covers the entire body */
+    background-attachment: fixed;  /* Make the background image fixed */
+    background-color: #f1f1f1;  /* Fallback color */
+    min-height: 100vh;  /* Ensures the body takes up the full height of the viewport */
+    overflow: auto;
+}
+
+/* General styling for the title headers */
+.header {
+    color: black;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 0 auto 20px;
+    margin-bottom: 20px;
+}
+
+/* Parent container for separating the owner and customer sections */
+.users-section {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px;
+    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+    padding-bottom: 10px;
+}
+
+/* Styling for each individual section */
+.container {
+    background-color: #F1F1F3;
+    border-radius: 30px;
+    padding: 20px;
+    width: 100%; /* Set to 100% for mobile */
+    max-width: 45%; /* Limit to max 45% for larger screens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Added margin for spacing */
+    text-align: center;
+    margin: 10px 0; /* Added margin for spacing on smaller screens */
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+
+    .users-section {
+        flex-direction: column; /* Stack the sections vertically */
+        align-items: center; /* Center align the sections */
+    }
+}
+
+.container h2 {
+    font-family: 'Fredoka', sans-serif;
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.user {
+    font-family: 'Fredoka', sans-serif;
+    background-color: #0093c1;
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color:white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: background-color 0.3s; /* Added hover effect */
+}
+
+.user:hover{
+    background-color: #01579b;
+}
+
+.user-id {
+    font-weight: bold;
+    background-color: #26c6da;
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Initially hide additional users */
+.user.hidden {
+    display: none;
+}
+
+.btn {
+    background-color: #26c6da;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0097a7; /* Darker color on hover */
+}
+
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed in place */
+    z-index: 1000; /* On top of everything else */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Modal content */
+.modal-content {
+    position: fixed;
+    top: 40%; /* Adjusted to lift the modal higher */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80vw; /* Use viewport width */
+    max-width: 600px; /* Limit the max width */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-height: 90vh; /* Prevent it from becoming too tall */
+    overflow-y: auto;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 750px) {
+    .container {
+        max-width: 90%; /* Full width on smaller screens */
+    }
+
+    .header {
+        font-size: 20px; /* Slightly smaller header for smaller screens */
+        padding: 15px;   /* Adjust padding */
+    }
+
+    .btn {
+        width: 100%;  /* Make button full-width on small screens */
+        font-size: 14px; /* Smaller button text */
+    }
+
+    .user {
+        font-size: 14px; /* Smaller font size for user elements */
+    }
+}
+
+@media (max-width: 600px) {
+    /* Adjust the modal content width */
+    .modal-content {
+        width: 80%; /* Make modal content 80% of the viewport width */
+        max-width: 350px; /* Set a maximum width for smaller screens */
+        padding: 10px;  /* Adjust padding for mobile view */
+        max-height: 50%;
+        overflow-y: auto; /* Allow scrolling if content overflows */
+    }
+
+    /* Adjust header text size */
+    .header {
+        font-size: 16px;  /* Smaller font size for mobile */
+        padding: 10px;    /* Less padding */
+    }
+
+    /* Adjust the user name and number container size */
+    .user {
+        font-size: 14px; /* Smaller font size for user names */
+        padding: 8px;    /* Reduced padding */
+        margin-bottom: 8px;  /* Less margin between items */
+    }
+
+    /* Adjust the user-id (number) circle size */
+    .user-id {
+        font-size: 12px; /* Smaller font size inside the circle */
+        width: 25px;  /* Smaller circle size */
+        height: 25px; /* Smaller circle size */
+    }
+
+    /* Adjust the button size */
+    .btn {
+        font-size: 14px;  /* Smaller font size for buttons */
+        padding: 8px 15px; /* Reduced padding */
+    }
+
+    /* Adjust the close button size */
+    .close-button {
+        font-size: 1.2rem; /* Smaller close button */
+        top: 5px; /* Adjust position */
+        right: 10px;
+    }
+}
+
+
+
+/* Close button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Optional fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Full list styling in modal */
+.full-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
